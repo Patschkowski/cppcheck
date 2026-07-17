@@ -1,7 +1,7 @@
 // Test library configuration for microsoft_gsl.cfg
 //
 // Usage:
-// $ cppcheck --check-library --library=microsoft_gsl --enable=style,information --inconclusive --error-exitcode=1 --inline-suppr test/cfg/microsoft_gsl.cpp
+// $ cppcheck --check-library --library=microsoft_gsl --enable=style,information --inconclusive --error-exitcode=1 --inline-suppr --suppress=autoNoType test/cfg/microsoft_gsl.cpp
 // =>
 // No warnings about bad library configuration, unmatched suppressions, etc. exitcode=0
 //
@@ -43,7 +43,7 @@ auto suppress_macro_test(std::span<int> s) -> int
   return s[0];
 }
 
-auto iterate_over_container_test(std::vector<int> v) -> int
+auto iterate_over_container_test(const std::vector<int> &v) -> int
 {
   int sum{0};
 
